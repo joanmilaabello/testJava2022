@@ -11,6 +11,7 @@ import com.test.testjava.db.entity.PriceEntity;
 import com.test.testjava.db.repository.PriceRepository;
 import com.test.testjava.dto.PriceDTO;
 import com.test.testjava.dto.PriceFilterDTO;
+import com.test.testjava.exception.PriceNotFoundApiException;
 import com.test.testjava.mapper.PriceMapper;
 import lombok.RequiredArgsConstructor;
 
@@ -30,8 +31,7 @@ public class PriceService {
 
     private void validateData(List<PriceEntity> page) {
         if (CollectionUtils.isEmpty(page)) {
-            // TODO: Manage exceptions
-            throw new RuntimeException("Not Found");
+            throw new PriceNotFoundApiException();
         }
     }
 }
