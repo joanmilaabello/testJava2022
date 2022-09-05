@@ -1,0 +1,15 @@
+# H2 Database
+spring:
+  datasource:
+    url: jdbc:h2:mem:testjavadb
+    driverClassName: org.h2.Driver
+    username: test
+    password: java
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: false
+  h2:
+    console:
+      enabled: true # Enables DB console
