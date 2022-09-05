@@ -9,7 +9,7 @@ import lombok.Getter;
 
 @Getter
 @Builder
-public class PriceAvailDTO {
+public class PriceFilterDTO {
 
     @NotNull
     private Integer productId;

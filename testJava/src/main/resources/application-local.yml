@@ -6,8 +6,10 @@ spring:
     username: test
     password: java
   jpa:
+    hibernate:
+      ddl-auto: validate
     database-platform: org.hibernate.dialect.H2Dialect
-    defer-datasource-initialization: true
+    defer-datasource-initialization: false
   h2:
     console:
       enabled: true # Enables DB console

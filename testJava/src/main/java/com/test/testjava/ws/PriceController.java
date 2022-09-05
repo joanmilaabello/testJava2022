@@ -9,18 +9,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.test.testjava.constants.Constants;
-import com.test.testjava.dto.PriceAvailDTO;
+import com.test.testjava.core.PriceService;
 import com.test.testjava.dto.PriceDTO;
+import com.test.testjava.dto.PriceFilterDTO;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping(
     value = Constants.VERSION + "/price",
     consumes = MediaType.APPLICATION_JSON_VALUE,
     produces = MediaType.APPLICATION_JSON_VALUE)
-public class Controller {
+@RequiredArgsConstructor
+public class PriceController {
 
-    @PostMapping
-    public PriceDTO getPrices(@Valid @RequestBody PriceAvailDTO request) {
-        return null;
+    private final PriceService priceService;
+
+    @PostMapping(value = "/check")
+    public PriceDTO check(@Valid @RequestBody PriceFilterDTO request) {
+        return priceService.check(request);
     }
 }
