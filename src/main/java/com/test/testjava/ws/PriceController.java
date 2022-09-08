@@ -3,7 +3,6 @@ package com.test.testjava.ws;
 import javax.validation.Valid;
 
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,7 +25,7 @@ public class PriceController {
     private final PriceService priceService;
 
     @PostMapping(value = "/check")
-    public ResponseEntity<PriceDTO> check(@Valid @RequestBody PriceFilterDTO request) {
-        return ResponseEntity.ok(priceService.check(request));
+    public PriceDTO check(@Valid @RequestBody PriceFilterDTO request) {
+        return priceService.check(request);
     }
 }
