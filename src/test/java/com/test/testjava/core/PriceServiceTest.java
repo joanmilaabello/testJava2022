@@ -37,10 +37,10 @@ public class PriceServiceTest {
         PriceFilterDTO request = PriceFilterDTO.builder().build();
         PriceEntity priceEntity = PriceEntity.builder().build();
         List<PriceEntity> entities = List.of(priceEntity);
-        PriceDTO response = PriceDTO.builder().build();
+        PriceDTO expected = PriceDTO.builder().build();
         when(priceRepository.check(request, PAGE_FIRST_ITEM)).thenReturn(entities);
-        when(priceMapper.toDto(priceEntity)).thenReturn(response);
-        assertEquals(response, sut.check(request));
+        when(priceMapper.toDto(priceEntity)).thenReturn(expected);
+        assertEquals(expected, sut.check(request));
     }
 
     @Test(expected = PriceNotFoundApiException.class)
